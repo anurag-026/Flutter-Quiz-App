@@ -1,17 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:quiz/question_screen.dart';
+//import 'package:quiz/question_screen.dart';
 import 'styled_text.dart';
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
+class StartScreen extends StatelessWidget {
+  const StartScreen(this.startQuiz, {super.key});
+
+  final void Function() startQuiz;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  @override
-  Widget build(BuildContext context) {
+  Widget build(context) {
     return Center(
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -31,11 +28,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           OutlinedButton(
             onPressed: () {
-              //right way: use context in below level tree with MaterialApp
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) =>const queScreen()),
-              );
+              startQuiz();
             },
             style: OutlinedButton.styleFrom(
               backgroundColor: const Color.fromARGB(255, 4, 89, 159),
@@ -59,3 +52,10 @@ class _MyHomePageState extends State<MyHomePage> {
 //                 
 //               ),
 //             ),
+
+
+ //right way: use context in below level tree with MaterialApp
+              // Navigator.push(
+              //   context,
+              //   MaterialPageRoute(builder: (context) => const queScreen()),
+              //);
