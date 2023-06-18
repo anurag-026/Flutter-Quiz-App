@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names, camel_case_types
+
 import 'package:flutter/material.dart';
 import 'start_screen.dart';
 import 'question_screen.dart';
@@ -10,19 +12,25 @@ class quiz extends StatefulWidget {
 }
 
 class _quizState extends State<quiz> {
-  
-    Widget activeScreen = StartScreen(SwitchScreen);
+  String activeScreen = 'start-screen';
+
+  // @override
+
+  // void initState() {
+  //   super.initState();
+  //   activeScreen = StartScreen(SwitchScreen);
+  // }
 
   void SwitchScreen() {
     setState(() {
-      activeScreen = const queScreen();
+      activeScreen = 'que-screen';
     });
   }
 
   @override
   Widget build(context) {
     return MaterialApp(
-      color: Color.fromARGB(255, 3, 116, 209),
+      color: const Color.fromARGB(255, 3, 116, 209),
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: Container(
@@ -37,7 +45,9 @@ class _quizState extends State<quiz> {
               end: Alignment.bottomRight,
             ),
           ),
-          child: activeScreen,
+          child: activeScreen == 'start-screen'
+              ? StartScreen(SwitchScreen)
+              : const queScreen(),
         ),
       ),
     );
