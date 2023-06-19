@@ -29,10 +29,10 @@ class _quizState extends State<quiz> {
 
   @override
   Widget build(context) {
-    // final  screenWidget = activeScreen == 'start-screen'
-    //           ? StartScreen(SwitchScreen)
-    //           : const queScreen();
-    //        OR
+    final  screenWidget = activeScreen == 'start-screen'
+              ? StartScreen(SwitchScreen)
+              : const queScreen();
+           
 
     return MaterialApp(
       color: const Color.fromARGB(255, 3, 116, 209),
