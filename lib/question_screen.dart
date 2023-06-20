@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'option_response.dart';
-import 'question.dart';
+//import 'option_response.dart';
+//import 'question.dart';
 
 class queScreen extends StatefulWidget {
   const queScreen({super.key});
@@ -17,14 +17,11 @@ class _queScreenState extends State<queScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            question('What is your name ? '),
+           // question('What is your name ? '),
             SizedBox(
               height: 40,
             ),
-            option('Anurag'),
-            option('Aditya'),
-            option('Shubham'),
-            option('Abhisek'),
+            
           ],
         ),
       ),
