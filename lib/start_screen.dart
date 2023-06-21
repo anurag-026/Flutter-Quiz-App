@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-//import 'package:quiz/question_screen.dart';
 import 'styled_text.dart';
 
 class StartScreen extends StatelessWidget {
@@ -42,16 +41,6 @@ class StartScreen extends StatelessWidget {
     );
   }
 }
-
-
-// ButtonStyle(
-//               backgroundColor:
-//                   MaterialStatePropertyAll(),
-//               elevation: MaterialStatePropertyAll(10),
-//               shadowColor: MaterialStatePropertyAll(
-//                 
-//               ),
-//             ),
 
 
  //right way: use context in below level tree with MaterialApp

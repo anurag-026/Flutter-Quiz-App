@@ -1,8 +1,9 @@
 import 'package:quiz/model/quiz_question.dart';
+// ignore: camel_case_types
 
 const questions = [
   quizQuestion(
-    'Which language is used in fllutter ',
+    'Which language is used in flutter ?',
     [
       'Dart',
       'C++',
@@ -11,7 +12,7 @@ const questions = [
     ],
   ),
   quizQuestion(
-    'What is Flutter?',
+    'What is Flutter ?',
     [
       'Flutter is an open-source UI toolkit',
       'Flutter is an open-source backend development framework',
@@ -47,7 +48,7 @@ const questions = [
     ],
   ),
   quizQuestion(
-    'When building for iOS, Flutter is restricted to an __ compilation strategy',
+    'When building for iOS, Flutter is restricted to an _________ compilation strategy ',
     [
       'AOT (ahead-of-time)',
       'JIT (Just-in-time)',
@@ -56,7 +57,7 @@ const questions = [
     ],
   ),
   quizQuestion(
-    'When building for iOS, Flutter is restricted to an __ compilation strategy',
+    'When building for iOS, Flutter is restricted to an ______ compilation strategy',
     [
       'AOT (ahead-of-time)',
       'JIT (Just-in-time)',

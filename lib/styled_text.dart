@@ -14,6 +14,7 @@ class StyledText extends StatelessWidget {
         color: color, 
         fontSize: size,
         
+        
       ),
     );
   }

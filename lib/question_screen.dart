@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-//import 'option_response.dart';
-//import 'question.dart';
+import 'answer_btn.dart';
+import 'package:quiz/data/question.dart';
 
+// ignore: camel_case_types
 class queScreen extends StatefulWidget {
   const queScreen({super.key});
 
@@ -9,31 +10,32 @@ class queScreen extends StatefulWidget {
   State<queScreen> createState() => _queScreenState();
 }
 
+// ignore: camel_case_types
 class _queScreenState extends State<queScreen> {
+  final currentquestion = questions[0];
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const Text('Question 1'),
-          const SizedBox(
-            height: 20,
-          ),
-          ElevatedButton(
-            onPressed: () {},
-            child: const Text('Answer 1'),
-          ),
-          ElevatedButton(
-            onPressed: () {},
-            child: const Text('Answer 1'),
-          ),
-          ElevatedButton(
-            onPressed: () {},
-            child: const Text('Answer 1'),
-          ),
-        ],
+      child: Container(
+        margin: EdgeInsets.all(40),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Text(
+              currentquestion.text,
+              style: const TextStyle(fontSize: 25, color: Colors.white),
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            ...currentquestion.answer.map((answer) {
+              return AnswerButton(answer, () {});
+            }),
+          ],
+        ),
       ),
     );
   }
