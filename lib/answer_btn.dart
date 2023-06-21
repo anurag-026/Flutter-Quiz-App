@@ -8,9 +8,10 @@ class AnswerButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 6),
+      padding: const EdgeInsets.all(6),
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
+          alignment: Alignment.center,
           padding: const EdgeInsets.symmetric(vertical: 9, horizontal: 15),
           foregroundColor: Colors.white,
           backgroundColor: const Color.fromARGB(255, 142, 166, 214),
@@ -22,6 +23,7 @@ class AnswerButton extends StatelessWidget {
         child: Text(
           text,
           style: const TextStyle(fontSize: 20),
+          textAlign: TextAlign.center,
         ),
       ),
     );
