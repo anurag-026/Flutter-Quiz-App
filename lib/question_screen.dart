@@ -48,8 +48,13 @@ class _queScreenState extends State<queScreen> {
               height: 20,
             ),
             ...currentquestion.getShuffledAnswer().map((answer) {
-              return AnswerButton(answer, answerQuestion);
-            }),
+              return AnswerButton(
+                answer,
+                () {
+                  answerQuestion(answer);
+                },
+              );
+            })
           ],
         ),
       ),

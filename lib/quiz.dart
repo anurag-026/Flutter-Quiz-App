@@ -3,6 +3,8 @@
 import 'package:flutter/material.dart';
 import 'start_screen.dart';
 import 'question_screen.dart';
+import 'package:quiz/data/question.dart';
+import 'package:quiz/result/result-screen.dart';
 
 class quiz extends StatefulWidget {
   const quiz({super.key});
@@ -12,7 +14,6 @@ class quiz extends StatefulWidget {
 }
 
 class _quizState extends State<quiz> {
-
   final List<String> storedAnswer = [];
 
   String activeScreen = 'start-screen';
@@ -32,15 +33,36 @@ class _quizState extends State<quiz> {
 
   void chooseAnswer(String answer) {
     storedAnswer.add(answer);
+
+    if (storedAnswer.length == questions.length) {
+      setState(() {
+        activeScreen = 'result-screen';
+        
+      });
+    }
   }
 
   @override
   Widget build(context) {
-    final screenWidget = activeScreen == 'start-screen'
-        ? StartScreen(SwitchScreen)
-        : queScreen(
-            onSelectAnswer: chooseAnswer,
-          );
+    // final screenWidget = activeScreen == 'start-screen'
+    //     ? StartScreen(SwitchScreen)
+    //     : queScreen(
+    //         onSelectAnswer: chooseAnswer,
+    //       );
+
+    Widget screenWidget = StartScreen(SwitchScreen);
+
+    if (activeScreen == 'que-screen') {
+      screenWidget = queScreen(
+        onSelectAnswer: chooseAnswer,
+      );
+    }
+
+    if (activeScreen == 'result-screen') {
+      screenWidget = ResultScreen(
+        chosenAnswer: storedAnswer,
+      );
+    }
 
     return MaterialApp(
       color: const Color.fromARGB(255, 3, 116, 209),
