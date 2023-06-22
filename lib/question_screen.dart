@@ -1,3 +1,5 @@
+// ignore_for_file: camel_case_types
+
 import 'package:flutter/material.dart';
 import 'answer_btn.dart';
 import 'package:quiz/data/question.dart';
@@ -45,7 +47,7 @@ class _queScreenState extends State<queScreen> {
               textAlign: TextAlign.center,
             ),
             const SizedBox(
-              height: 20,
+              height: 50,
             ),
             ...currentquestion.getShuffledAnswer().map((answer) {
               return AnswerButton(

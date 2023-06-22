@@ -37,9 +37,15 @@ class _quizState extends State<quiz> {
     if (storedAnswer.length == questions.length) {
       setState(() {
         activeScreen = 'result-screen';
-        
       });
     }
+  }
+
+  void onRestart() {
+    setState(() {
+      activeScreen = 'que-screen';
+      storedAnswer.clear();
+    });
   }
 
   @override
@@ -61,6 +67,7 @@ class _quizState extends State<quiz> {
     if (activeScreen == 'result-screen') {
       screenWidget = ResultScreen(
         chosenAnswer: storedAnswer,
+        onRestart: onRestart,
       );
     }
 
