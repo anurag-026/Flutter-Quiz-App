@@ -3,21 +3,22 @@ import 'answer_btn.dart';
 import 'package:quiz/data/question.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-// ignore: camel_case_types
 class queScreen extends StatefulWidget {
-  const queScreen({super.key});
+  const queScreen({super.key, required this.onSelectAnswer});
+
+  final void Function(String answer) onSelectAnswer;
 
   @override
   State<queScreen> createState() => _queScreenState();
 }
 
-// ignore: camel_case_types
 class _queScreenState extends State<queScreen> {
   var currentQuestionIndex = 0;
 
-  void answerQuestion() {
+  void answerQuestion(String storedAnswer) {
+    widget.onSelectAnswer(storedAnswer);
+
     setState(() {
-      //if (currentQuestionIndex >= 13) return;
       currentQuestionIndex++;
     });
   }
@@ -35,11 +36,11 @@ class _queScreenState extends State<queScreen> {
           children: [
             Text(
               currentquestion.text,
-              style: GoogleFonts.poppins(
+              style: GoogleFonts.lato(
                 textStyle: const TextStyle(
-                  fontSize: 25,
-                  color: Colors.white,
-                ),
+                    fontSize: 25,
+                    color: Color.fromARGB(255, 127, 204, 239),
+                    fontWeight: FontWeight.bold),
               ),
               textAlign: TextAlign.center,
             ),
