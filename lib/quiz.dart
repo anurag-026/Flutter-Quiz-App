@@ -41,7 +41,7 @@ class _quizState extends State<quiz> {
     }
   }
 
-  void onRestart() {
+  void  onRestart() {
     setState(() {
       activeScreen = 'que-screen';
       storedAnswer.clear();

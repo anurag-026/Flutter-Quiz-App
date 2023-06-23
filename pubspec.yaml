@@ -13,6 +13,7 @@ dependencies:
   flutter:
     sdk: flutter
   google_fonts: ^5.1.0
+  flutter_layout_grid: ^2.0.0
 
   cupertino_icons: ^1.0.2
 

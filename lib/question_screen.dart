@@ -49,14 +49,16 @@ class _queScreenState extends State<queScreen> {
             const SizedBox(
               height: 50,
             ),
-            ...currentquestion.getShuffledAnswer().map((answer) {
-              return AnswerButton(
-                answer,
-                () {
-                  answerQuestion(answer);
-                },
-              );
-            })
+            ...currentquestion.getShuffledAnswer().map(
+              (answer) {
+                return AnswerButton(
+                  answer,
+                  () {
+                    answerQuestion(answer);
+                  },
+                );
+              },
+            )
           ],
         ),
       ),

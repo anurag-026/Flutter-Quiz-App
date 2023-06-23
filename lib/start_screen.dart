@@ -9,7 +9,7 @@ class StartScreen extends StatelessWidget {
   @override
   Widget build(context) {
     return Center(
-      child: Column(
+      child:  Column(
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -25,6 +25,8 @@ class StartScreen extends StatelessWidget {
           const SizedBox(
             height: 35,
           ),
+
+
           OutlinedButton(
             onPressed: () {
               startQuiz();
