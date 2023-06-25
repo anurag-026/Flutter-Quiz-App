@@ -1,7 +1,9 @@
 // ignore_for_file: non_constant_identifier_names, camel_case_types
 
 import 'package:flutter/material.dart';
-import 'start_screen.dart';
+import 'package:quiz/create_quiz.dart';
+import 'package:quiz/start_quiz.dart';
+import 'home_screen.dart';
 import 'question_screen.dart';
 import 'package:quiz/data/question.dart';
 import 'package:quiz/result/result-screen.dart';
@@ -16,18 +18,28 @@ class quiz extends StatefulWidget {
 class _quizState extends State<quiz> {
   final List<String> storedAnswer = [];
 
-  String activeScreen = 'start-screen';
-
-  // @override
+  String activeScreen = 'home-screen';
 
   // void initState() {
   //   super.initState();
-  //   activeScreen = StartScreen(SwitchScreen);
+  //   activeScreen = HomeScreen(SwitchScreen);
   // }
 
-  void SwitchScreen() {
+  void startQuizId() {
     setState(() {
-      activeScreen = 'que-screen';
+      activeScreen = 'start-quiz';
+    });
+  }
+
+  void startQuestion() {
+    setState(() {
+      activeScreen = 'display-que-screen';
+    });
+  }
+
+  void createQue() {
+    setState(() {
+      activeScreen = 'create-que-screen';
     });
   }
 
@@ -41,24 +53,21 @@ class _quizState extends State<quiz> {
     }
   }
 
-  void  onRestart() {
+  void onRestart() {
     setState(() {
-      activeScreen = 'que-screen';
+      activeScreen = 'home-screen';
       storedAnswer.clear();
     });
   }
 
   @override
   Widget build(context) {
-    // final screenWidget = activeScreen == 'start-screen'
-    //     ? StartScreen(SwitchScreen)
-    //     : queScreen(
-    //         onSelectAnswer: chooseAnswer,
-    //       );
+    Widget screenWidget = HomeScreen(
+      startQuizId: startQuizId,
+      createQuiz: createQue,
+    );
 
-    Widget screenWidget = StartScreen(SwitchScreen);
-
-    if (activeScreen == 'que-screen') {
+    if (activeScreen == 'display-que-screen') {
       screenWidget = queScreen(
         onSelectAnswer: chooseAnswer,
       );
@@ -69,6 +78,12 @@ class _quizState extends State<quiz> {
         chosenAnswer: storedAnswer,
         onRestart: onRestart,
       );
+    }
+    if (activeScreen == 'start-quiz') {
+      screenWidget = StartQuiz(startQuestion);
+    }
+    if (activeScreen == 'create-que-screen') {
+      screenWidget = CreateQuiz(startQuestion);
     }
 
     return MaterialApp(

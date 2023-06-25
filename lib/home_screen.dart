@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'styled_text.dart';
 
-class StartScreen extends StatelessWidget {
-  const StartScreen(this.startQuiz, {super.key});
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key, required this.startQuizId, required this.createQuiz});
 
-  final void Function() startQuiz;
+  final void Function() startQuizId;
+  final void Function() createQuiz;
 
   @override
   Widget build(context) {
     return Center(
-      child:  Column(
+      child: Column(
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -25,11 +26,9 @@ class StartScreen extends StatelessWidget {
           const SizedBox(
             height: 35,
           ),
-
-
           OutlinedButton(
             onPressed: () {
-              startQuiz();
+              startQuizId();
             },
             style: OutlinedButton.styleFrom(
               backgroundColor: const Color.fromARGB(255, 4, 89, 159),
@@ -37,6 +36,18 @@ class StartScreen extends StatelessWidget {
               shadowColor: const Color.fromARGB(255, 38, 76, 107),
             ),
             child: StyledText('Start Quiz', Colors.white, 23),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          OutlinedButton(
+            onPressed: createQuiz,
+            style: OutlinedButton.styleFrom(
+              backgroundColor: const Color.fromARGB(255, 4, 89, 159),
+              elevation: 10,
+              shadowColor: const Color.fromARGB(255, 38, 76, 107),
+            ),
+            child: StyledText('Create Quiz', Colors.white, 23),
           ),
         ],
       ),
